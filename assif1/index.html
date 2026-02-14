@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Smart Event Dashboard</title>
+
+<style>
+
+*{
+    box-sizing:border-box;
+    font-family:Segoe UI, sans-serif;
+}
+
+body{
+    margin:0;
+    padding:30px;
+    background:linear-gradient(135deg,#63c7c0,#5ea2d6);
+}
+
+h1{
+    text-align:center;
+    color:white;
+    margin-bottom:25px;
+}
+
+/* layout */
+
+.dashboard{
+    max-width:1100px;
+    margin:auto;
+}
+
+.top-grid{
+    display:grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap:25px;
+}
+
+/* cards */
+
+.card{
+    background:white;
+    padding:22px;
+    border-radius:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+.card h2{
+    margin-top:0;
+    color:#4b5bdc;
+}
+
+/* form */
+
+label{
+    font-size:14px;
+    font-weight:600;
+}
+
+input, select, textarea{
+    width:100%;
+    padding:10px;
+    margin-top:6px;
+    margin-bottom:14px;
+    border-radius:6px;
+    border:1px solid #ccc;
+    font-size:14px;
+}
+
+textarea{
+    resize:none;
+    height:90px;
+}
+
+/* buttons */
+
+.btn{
+    background:linear-gradient(90deg,#58c6b9,#4ea0d8);
+    color:white;
+    border:none;
+    padding:11px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.btn:hover{
+    opacity:.9;
+}
+
+.btn-row{
+    display:flex;
+    gap:12px;
+    margin-bottom:12px;
+}
+
+.btn-small{
+    flex:1;
+    padding:9px;
+}
+
+/* event cards */
+
+#eventContainer{
+    min-height:200px;
+}
+
+.event-card{
+    background:#f7f9ff;
+    padding:14px;
+    border-radius:10px;
+    margin-bottom:12px;
+    position:relative;
+}
+
+.event-card h3{
+    margin:0 0 6px 0;
+}
+
+.event-card span{
+    font-size:12px;
+    background:#e3e8ff;
+    padding:4px 8px;
+    border-radius:20px;
+}
+
+.delete-btn{
+    position:absolute;
+    right:10px;
+    top:10px;
+    border:none;
+    background:#ff5b5b;
+    color:white;
+    border-radius:50%;
+    width:26px;
+    height:26px;
+    cursor:pointer;
+}
+
+.empty-state{
+    text-align:center;
+    color:#777;
+    margin-top:50px;
+}
+
+/* bottom demo box */
+
+.demo-card{
+    margin-top:25px;
+}
+
+#demoContent{
+    background:#f1f1f1;
+    padding:14px;
+    border-radius:8px;
+    color:#555;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>🎯 Smart Event Dashboard</h1>
+
+<div class="dashboard">
+
+<div class="top-grid">
+
+<!-- LEFT FORM CARD -->
+
+<div class="card">
+<h2>Add New Event</h2>
+
+<form id="eventForm">
+
+<label>Event Title</label>
+<input id="eventTitle" required>
+
+<label>Event Date</label>
+<input id="eventDate" type="date" required>
+
+<label>Category</label>
+<select id="eventCategory">
+<option>Conference</option>
+<option>Workshop</option>
+<option>Meetup</option>
+</select>
+
+<label>Description</label>
+<textarea id="eventDescription"></textarea>
+
+<button class="btn" type="submit">Add Event</button>
+
+</form>
+</div>
+
+<!-- RIGHT EVENTS CARD -->
+
+<div class="card">
+<h2>My Events</h2>
+
+<div class="btn-row">
+<button id="clearAllBtn" class="btn btn-small">Clear All Events</button>
+<button id="addSampleBtn" class="btn btn-small">Add Sample Events</button>
+</div>
+
+<div id="eventContainer">
+<div class="empty-state">
+No events yet. Add your first event!
+</div>
+</div>
+
+</div>
+
+</div>
+
+<!-- BOTTOM DEMO -->
+
+<div class="card demo-card">
+<h2>DOM Manipulation Demo</h2>
+<div id="demoContent">
+Press any key to see the difference!
+</div>
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

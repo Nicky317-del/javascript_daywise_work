@@ -1,0 +1,212 @@
+* {
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 30px;
+    background: linear-gradient(135deg, #3ec6c1, #5aa9e6);
+}
+
+/* Title */
+
+h1 {
+    text-align: center;
+    color: white;
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+/* Two column layout */
+
+form,
+#eventContainer,
+#demoContent {
+    background: #f7f9fc;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* Wrap form + events in grid */
+
+body > h2:nth-of-type(1),
+body > h2:nth-of-type(2) {
+    display: none; /* hide duplicate headings */
+}
+
+#eventForm {
+    grid-area: form;
+}
+
+#eventContainer {
+    grid-area: events;
+}
+
+#demoContent {
+    grid-area: demo;
+}
+
+body {
+    display: grid;
+    grid-template-areas:
+        "title title"
+        "form events"
+        "demo demo";
+    grid-template-columns: 380px 1fr;
+    gap: 24px;
+}
+
+h1 { grid-area: title; }
+
+/* Card sections */
+
+form {
+    padding: 22px;
+}
+
+#eventContainer {
+    padding: 22px;
+    min-height: 260px;
+}
+
+/* Section headings inside cards */
+
+form::before {
+    content: "Add New Event";
+    font-weight: 700;
+    font-size: 18px;
+    color: #5a67d8;
+    display: block;
+    margin-bottom: 14px;
+}
+
+#eventContainer::before {
+    content: "My Events";
+    font-weight: 700;
+    font-size: 18px;
+    color: #5a67d8;
+    display: block;
+    margin-bottom: 14px;
+}
+
+/* Inputs */
+
+label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #444;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    border: 1px solid #d6dbe6;
+    background: #ffffff;
+    font-size: 14px;
+}
+
+textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+/* Buttons */
+
+button {
+    background: linear-gradient(90deg, #38b2ac, #63b3ed);
+    color: white;
+    border: none;
+    padding: 11px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    transform: translateY(-1px);
+    opacity: 0.95;
+}
+
+/* Top action buttons */
+
+#clearAllBtn,
+#addSampleBtn {
+    width: 48%;
+    margin-bottom: 12px;
+}
+
+/* Event cards */
+
+.event-card {
+    background: white;
+    border-radius: 12px;
+    padding: 14px;
+    margin-bottom: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    position: relative;
+}
+
+.event-card h3 {
+    margin: 0 0 6px;
+}
+
+.event-card span {
+    display: inline-block;
+    background: #e6f0ff;
+    color: #3b5bdb;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    margin: 6px 0;
+}
+
+/* Delete button */
+
+.delete-btn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background: #ff6b6b;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 12px;
+}
+
+.delete-btn:hover {
+    background: #fa5252;
+}
+
+/* Empty state */
+
+.empty-state {
+    text-align: center;
+    color: #7a869a;
+    padding: 30px 10px;
+}
+
+/* DOM demo panel */
+
+#demoContent {
+    padding: 20px;
+    font-weight: 600;
+    color: #444;
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+    body {
+        grid-template-areas:
+            "title"
+            "form"
+            "events"
+            "demo";
+        grid-template-columns: 1fr;
+    }
+}
